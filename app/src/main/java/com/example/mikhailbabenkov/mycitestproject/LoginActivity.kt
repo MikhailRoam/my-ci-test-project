@@ -60,7 +60,6 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
     }
 
     private fun mayRequestContacts(): Boolean {
-        fuckud up
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return true
         }
