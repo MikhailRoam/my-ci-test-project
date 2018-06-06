@@ -50,6 +50,8 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
 
         val smth = true
 
+        dflsdfs 
+
         email_sign_in_button.setOnClickListener { attemptLogin() }
     }
 
