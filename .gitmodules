@@ -1,0 +1,4 @@
+[submodule "sauce"]
+	path = sauce
+	url = https://github.com/Roamltd/sauce-sdk-android
+	branch = master

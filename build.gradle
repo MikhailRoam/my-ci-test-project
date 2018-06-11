@@ -22,6 +22,14 @@ allprojects {
     }
 }
 
+ext {
+    // Android
+    buildToolsVersion = "27.0.3"
+    minSdkVersion = 17
+    sdkVersion = 26
+    supportVersion = "27.1.1"
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

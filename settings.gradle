@@ -1,1 +1,2 @@
-include ':app'
+include ':app', ':sauce'
+project(':sauce').projectDir = new File('sauce/saucesdk')
