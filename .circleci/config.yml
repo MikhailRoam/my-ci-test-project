@@ -26,10 +26,14 @@ jobs:
       - store_artifacts:
           path: app/build/reports
           destination: reports
-      - store_artifacts:
-                path: app/build/output/apk
-                destination: reports
       - store_test_results:
           path: app/build/test-results
+      - run:
+          name: Building apk...
+          command: ./gradlew assembleDebug
+      - store_artifacts:
+          path: app/build/outputs
+          destination: apk
+
 
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples 
