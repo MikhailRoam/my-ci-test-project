@@ -9,8 +9,10 @@ jobs:
 
     steps:
       - checkout
-            - run: git submodule sync
-            - run: git submodule update --init
+      - run:
+          command: git submodule sync
+      - run:
+          command: git submodule update --init
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
 #      - run:
