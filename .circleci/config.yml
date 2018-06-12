@@ -6,6 +6,17 @@ jobs:
       - image: circleci/android:api-27-alpha
     environment:
       JVM_OPTS: -Xmx3200m
+      command: |
+                                   if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                                     api=${api_master}
+                                     client_secret=${client_secret_master}
+                                   else if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+                                     api=${api_dev}
+                                     client_secret=${client_secret_dev}
+                                   else
+                                     api="no api"
+                                     client_secret="no client secret"
+                                   fi
 
     steps:
       - checkout:
@@ -27,6 +38,23 @@ jobs:
           paths:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+   #   - run:
+   #       name: Setting up env variables...
+   #       command: |
+   #                 if [ "${CIRCLE_BRANCH}" == "master" ]; then
+   #                   api=${api_master}
+   #                   client_secret=${client_secret_master}
+   #                 else if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+   #                   api=${api_dev}
+   #                   client_secret=${client_secret_dev}
+   #                 else
+   #                   api="no api"
+   #                   client_secret="no client secret"
+   #                 fi
+       - run:
+                  command: |
+                        echo $api
+                        echo $client_secret
       - run:
           name: Run Tests...
           command: ./gradlew lint test
