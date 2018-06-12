@@ -7,7 +7,7 @@ elif [ "${CIRCLE_BRANCH}" == "master" ]
 then
   export api=${api_master}
 else
-  export api="My api key"
+  export api=${api_master}
 fi
 
 echo "Sucessfull build for key: ${api}"
