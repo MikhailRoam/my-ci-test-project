@@ -39,6 +39,7 @@ jobs:
           name: Building apk...
           command: ./gradlew assembleDebug
       - store_artifacts:
+          name: Uploading apk to artifacts...
           path: app/build/outputs
           destination: apk
 
