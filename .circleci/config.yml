@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Setting up environment variables
           command: |
-                    app/setup_env.sh
+                    ./setup_env.sh
       - run:
           name: Test up environment variables
           command: |
