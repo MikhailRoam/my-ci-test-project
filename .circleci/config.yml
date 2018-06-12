@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Setting up environment variables
           command: |
-                     export api = if [["${CIRCLE_BRANCH}" == "master"]] then ${api_master} elif [["${CIRCLE_BRANCH}" == "develop"]] then ${api_dev} else "no api" fi
+                    if ["${CIRCLE_BRANCH}" == "master"] then echo ${api_master} elif ["${CIRCLE_BRANCH}" == "develop"] then echo ${api_dev} else echo "no api" fi
 
       - run:
           name: Syncing submodules...
