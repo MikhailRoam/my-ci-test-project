@@ -14,7 +14,8 @@ jobs:
           name: Setting up environment variables
           command: |
                     echo 'if ["${CIRCLE_BRANCH}" == "master"] then export api=${api_master} elif ["${CIRCLE_BRANCH}" == "develop"] then export api=${api_dev} else export api="no api" fi' >> $BASH_ENV
-                    echo $api
+                    source $BASH_ENV
+                    echo $BASH_ENV
 
       - run:
           name: Syncing submodules...
