@@ -8,7 +8,8 @@ jobs:
       JVM_OPTS: -Xmx3200m
 
     steps:
-      - checkout
+      - checkout:
+          name: Checking out code...
       - run:
           name: Syncing submodules...
           command: |
