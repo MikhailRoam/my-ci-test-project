@@ -12,7 +12,7 @@ jobs:
           name: Checking out code...
       - run:
           name: Setting up environment variables
-          command: |
+          command: - |
                      export api = if ["${CIRCLE_BRANCH}" == "master" ] then ${api_master} elif ["${CIRCLE_BRANCH}" == "develop" ] then ${api_dev} else "no api" fi
 
       - run:
